@@ -1,7 +1,7 @@
 import PropTypes from "prop-types";
 import { ControlsList, ButtonControl } from "./FeedbackOptions.styled";
 
-export const FeedbackOptions = ({ options, onLeaveFeedback }) => (
+const FeedbackOptions = ({ options, onLeaveFeedback }) => (
   <ControlsList>
     {options.map((option) => (
       <li key={option}>
@@ -17,3 +17,5 @@ FeedbackOptions.propTypes = {
   options: PropTypes.arrayOf(PropTypes.string).isRequired,
   onLeaveFeedback: PropTypes.func.isRequired,
 };
+
+export default FeedbackOptions;
