@@ -9,19 +9,19 @@ export default function App() {
   const [neutral, setNeutral] = useState(0);
   const [bad, setBad] = useState(0);
 
-  const feedbackHandler = option => {
+  const feedbackHandler = (option) => {
     switch (option) {
-      case 'good':
-        setGood(prev => prev + 1);
+      case "good":
+        setGood((prev) => prev + 1);
         break;
-      case 'neutral':
-        setNeutral(prev => prev + 1);
+      case "neutral":
+        setNeutral((prev) => prev + 1);
         break;
-      case 'bad':
-        setBad(prev => prev + 1);
+      case "bad":
+        setBad((prev) => prev + 1);
         break;
       default:
-        throw new Error('unsupported type');
+        throw new Error("unsupported type");
     }
   };
 
@@ -57,54 +57,3 @@ export default function App() {
     </>
   );
 }
-
-// class App extends Component {
-//   state = {
-//     good: 0,
-//     neutral: 0,
-//     bad: 0,
-//   };
-
-//   feedbackHandler = (option) => {
-//     this.setState((prevState) => {
-//       return {
-//         [option]: prevState[option] + 1,
-//       };
-//     });
-//   };
-
-//   countTotalFeedback = () => {
-//     return this.state.good + this.state.neutral + this.state.bad;
-//   };
-//   countPositiveFeedbackPercentage = () => {
-//     return Math.floor((100 / this.countTotalFeedback()) * this.state.good);
-//   };
-
-//   render() {
-//     return (
-//       <>
-//         <Section title="Please leave feedback">
-//           <FeedbackOptions
-//             options={Object.keys(this.state)}
-//             onLeaveFeedback={this.feedbackHandler}
-//           />
-//         </Section>
-
-//         <Section title="Statistics">
-//           {this.countTotalFeedback() === 0 ? (
-//             <Notification message="There is no feedback" />
-//           ) : (
-//             <Statistics
-//               good={this.state.good}
-//               neutral={this.state.neutral}
-//               bad={this.state.bad}
-//               total={this.countTotalFeedback()}
-//               positivePercentage={this.countPositiveFeedbackPercentage()}
-//             />
-//           )}
-//         </Section>
-//       </>
-//     );
-//   }
-// }
-// export default App;
